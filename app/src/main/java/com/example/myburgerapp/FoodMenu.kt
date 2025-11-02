@@ -20,12 +20,12 @@ class FoodMenu : AppCompatActivity() {
     private lateinit var binding: ActivityFoodMenuBinding
     private lateinit var burgerAdapter: BurgerAdapter
 
-    // 1. Declara la lista, pero NO la inicialices aquí
+
     private lateinit var burgers: List<Burger>
 
-    val backButton: LinearLayout = findViewById(R.id.back_button)
 
-    // Order
+
+
     private val orderLines = mutableListOf<String>()
     private var orderTotal = 0.0
 
@@ -34,11 +34,11 @@ class FoodMenu : AppCompatActivity() {
         binding = ActivityFoodMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        backButton.setOnClickListener {
+        binding.backButton.setOnClickListener {
             finish()
         }
 
-        // 2. Inicializa la lista AQUÍ, dentro de onCreate
+
         burgers = listOf(
             Burger(1, getString(R.string.classic), "Doble carne, lechuga, tomate y salsa de la casa", 4200.0),
             Burger(2, getString(R.string.cheese), "Doble carne con queso cheddar y cebolla", 4500.0),

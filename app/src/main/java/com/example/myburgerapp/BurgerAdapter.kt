@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myburgerapp.models.Burger
 import com.example.myburgerapp.util.Price
 import com.google.android.material.button.MaterialButton
+import com.example.myburgerapp.R
 
 class BurgerAdapter(
 
@@ -30,7 +31,7 @@ class BurgerAdapter(
         val name: TextView = view.findViewById(R.id.tvName)
         val desc: TextView = view.findViewById(R.id.tvDesc)
         val price: TextView = view.findViewById(R.id.tvPrice)
-        val btn: MaterialButton = view.findViewById(R.id.btnAdd)
+        val btn: TextView = view.findViewById(R.id.btnAdd)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BurgerVH {

@@ -205,7 +205,7 @@
     <!-- ======== CONTENEDOR DEL MENÚ LATERAL ======== -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/user_menu_container"
-        android:name="com.example.myburgerapp.UserMenuFragment"
+
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:translationX="-280dp"
@@ -213,8 +213,7 @@
         tools:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/user_menu"
-        android:elevation="10dp" /> <!-- AÑADIDO: Dale elevación -->
+        android:elevation="10dp" />
 
     <!-- ======== CAPA OSCURA (SCRIM) ======== -->
     <View

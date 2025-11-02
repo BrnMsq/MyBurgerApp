@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             closeDrawer()
         }
 
-        // Listener para el botón de ir al menú de comida (ya lo tenías)
+        // Listener para el botón de ir al menú de comida
         binding.btnMenu.setOnClickListener {
             val intent = Intent(this, FoodMenu::class.java)
             startActivity(intent)
@@ -68,11 +68,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Gestionar el botón "atrás" del sistema
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         if (isDrawerOpen) {
             closeDrawer()
         } else {
             super.onBackPressed()
         }
-    }
+    }*/
 }
