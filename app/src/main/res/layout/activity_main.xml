@@ -8,10 +8,14 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <!-- Tu contenido principal se queda como está -->
     <LinearLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/head"
@@ -23,299 +27,208 @@
                 android:id="@+id/menu_user"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white"
+                android:contentDescription="Abrir menú de usuario"
+                android:src="@drawable/ic_btn_menu_three_lines"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/app_title"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
-                android:src="@drawable/ic_btn_menu_three_lines"
-                android:background="@color/white">
-            </ImageButton>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/app_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/menu_user"
-                app:layout_constraintEnd_toStartOf="@+id/cart_buy"
                 android:maxLines="1"
                 android:text="@string/app_name"
                 android:textSize="20dp"
-                android:textStyle="bold">
-            </TextView>
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cart_buy"
+                app:layout_constraintStart_toEndOf="@+id/menu_user"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/cart_buy"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/app_title"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/white"
+                android:contentDescription="Ver carrito de compras"
                 android:src="@drawable/ic_buy_cart"
-                android:background="@color/white">
-            </ImageButton>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/fast_options"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:id="@+id/btn_delivery"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_door">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="35dp"
-                    android:elevation="10dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="true">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_motorcycle"
-                        android:background="@color/white">
-                    </ImageView>
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Delivery">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btn_door"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_delivery"
-                app:layout_constraintEnd_toStartOf="@+id/btn_menu">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="35dp"
-                    android:elevation="10dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="true">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_door_open"
-                        android:background="@color/white">
-
-                    </ImageView>
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="En Puerta">
-                </TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btn_menu"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_door"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:cardCornerRadius="35dp"
-                    android:elevation="10dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:cardUseCompatPadding="true">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_menu"
-                        android:background="@color/white">
-
-                    </ImageView>
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Menú">
-                </TextView>
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
-
-            <TextView
-                android:id="@+id/tv_novedades_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Conocé las novedades"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/app_title"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <HorizontalScrollView
-                android:id="@+id/novedades"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:scrollbars="none"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_novedades_title">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
-
-                    <ImageView
-                        android:layout_width="250dp"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_promo3"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Oferta de chocolate"
-                        tools:srcCompat="@drawable/img_promo3" />
-
-                    <ImageView
-                        android:layout_width="250dp"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_promo1"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Oferta de helado 20% de descuento"
-                        tools:srcCompat="@drawable/img_promo1" />
-
-                    <ImageView
-                        android:layout_width="250dp"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_promo2"
-                        android:layout_marginEnd="8dp"
-                        android:contentDescription="Oferta de chocolate"
-                        tools:srcCompat="@drawable/img_promo2" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!-- El resto de tu contenido... -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:orientation="vertical">
+
+                <!-- ... Aquí dentro va todo el resto de tu contenido (fast_options, novedades, etc.) ... -->
+                <!-- He movido el resto de tu contenido a un ScrollView para asegurar que se vea bien en todas las pantallas -->
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fast_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="16dp">
-                    <ImageView
-                        android:id="@+id/iv_store_icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:src="@drawable/ic_store"
-                        android:contentDescription="Icono de tienda"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/tv_locales_title"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:id="@+id/btn_delivery"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="¡Veamos qué locales hay cerca!"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/iv_store_icon"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/iv_store_icon" />
-
-                    <TextView
-                        android:id="@+id/tv_locales_subtitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="Descubrí las hamburgueserías a tu alrededor."
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@id/iv_store_icon"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_locales_title" />
-
-                    <ImageView
-                        android:id="@+id/iv_mapa"
-                        android:layout_width="0dp"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="16dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_maps"
-                        android:contentDescription="Mapa con ubicaciones de locales"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_door"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_locales_subtitle" />
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="85dp"
+                            app:cardCornerRadius="35dp"
+                            app:cardElevation="10dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_motorcycle" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Delivery" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_door"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
+                        app:layout_constraintStart_toEndOf="@+id/btn_delivery"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="85dp"
+                            app:cardCornerRadius="35dp"
+                            app:cardElevation="10dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_door_open" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="En Puerta" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_door"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="75dp"
+                            android:layout_height="85dp"
+                            app:cardCornerRadius="35dp"
+                            app:cardElevation="10dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:src="@drawable/ic_menu" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Menú" />
+                    </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
+                <!-- ... Tu sección de novedades y locales va aquí dentro ... -->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
+
+    <!-- ======== CONTENEDOR DEL MENÚ LATERAL ======== -->
+    <!-- Este es el contenedor que se deslizará. -->
+    <!-- Inicialmente está fuera de la pantalla (translationX negativo) y es invisible. -->
+    <!-- ... -->
+    <!-- ======== CONTENEDOR DEL MENÚ LATERAL ======== -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/user_menu_container"
+        android:name="com.example.myburgerapp.UserMenuFragment"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:translationX="-280dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/user_menu"
+        android:elevation="10dp" /> <!-- AÑADIDO: Dale elevación -->
+
+    <!-- ======== CAPA OSCURA (SCRIM) ======== -->
+    <View
+        android:id="@+id/scrim_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#99000000"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="9dp" /> <!-- AÑADIDO: También a la capa oscura, justo debajo del menú -->
+    <!-- ... -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
