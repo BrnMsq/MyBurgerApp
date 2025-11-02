@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_title"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size_label"/>
+
+        <RadioGroup
+            android:id="@+id/rgSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rbSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Simple"/>
+            <RadioButton android:id="@+id/rbMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Doble" android:checked="true"/>
+            <RadioButton android:id="@+id/rbLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Triple"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/doneness_label"/>
+
+        <RadioGroup
+            android:id="@+id/rgDoneness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rbMediumRare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jugosa"/>
+            <RadioButton android:id="@+id/rb2Medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A punto" android:checked="true"/>
+            <RadioButton android:id="@+id/rbWellDone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bien cocida"/>
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cbCheese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_cheese"/>
+
+        <CheckBox
+            android:id="@+id/cbBacon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_bacon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spice_label"/>
+
+        <SeekBar
+            android:id="@+id/seekSpice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5"
+            android:progress="1"/>
+
+    </LinearLayout>
+</ScrollView>
