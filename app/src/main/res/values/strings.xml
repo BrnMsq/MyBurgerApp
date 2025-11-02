@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyBurgerApp</string>
+    <string name="title_main">MENÚ</string>
+    <string name="search_hint">Buscar...</string>
+    <string name="btn_checkout">Ir al pedido</string>
+    <string name="dialog_title">Personaliza tu burger</string>
+    <string name="size_label">Tamaño</string>
+    <string name="doneness_label">Cocción</string>
+    <string name="extra_cheese">Extra queso</string>
+    <string name="extra_bacon">Extra bacon</string>
+    <string name="spice_label">Picor</string>
+    <string name="add_to_order">Agregar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="order_title">Tu pedido</string>
+    <string name="order_empty">Aún no agregaste hamburguesas</string>
+    <string name="total_label">Total</string>
+    <string name="confirm_clear">¿Vaciar pedido?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+    <!-- Burger names -->
+    <string name="classic">Clásica</string>
+    <string name="cheese">Cheese</string>
+    <string name="bacon">Bacon</string>
+    <string name="veggie">Veggie</string>
+</resources>
