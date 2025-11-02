@@ -16,10 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
 }
 
-rootProject.name = "burgerapp"
+rootProject.name = "MyBurgerApp"
 include(":app")
  

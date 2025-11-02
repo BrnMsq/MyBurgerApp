@@ -10,7 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Burgerapp">
+        android:theme="@style/Theme.MyBurgerApp">
+        <activity
+            android:name=".FoodMenu"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
