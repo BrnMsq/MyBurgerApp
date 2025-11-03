@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.burgerapp.OrderActivity
 import com.example.myburgerapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val btnBuy = findViewById<View>(R.id.cart_buy)
+        btnBuy.setOnClickListener { navigatetoBuy() }
 
         // Listener para el botón que abre el menú
         binding.menuUser.setOnClickListener {
@@ -66,7 +70,10 @@ class MainActivity : AppCompatActivity() {
             binding.scrimView.animate().alpha(0f).setDuration(300).start()
         }
     }
-
+    private fun navigatetoBuy() {
+        val intent = Intent(this, OrderActivity::class.java)
+        startActivity(intent)
+    }
     // Gestionar el botón "atrás" del sistema
     /*override fun onBackPressed() {
         if (isDrawerOpen) {

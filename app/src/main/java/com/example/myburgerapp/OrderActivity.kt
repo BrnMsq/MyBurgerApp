@@ -6,6 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myburgerapp.R
 import com.example.myburgerapp.databinding.ActivityOrderBinding
+import com.example.myburgerapp.util.Price
+import android.widget.Button
+import kotlin.jvm.java
+import com.example.myburgerapp.TicketFinal
+import android.content.Intent
 
 class OrderActivity : AppCompatActivity() {
 
@@ -16,6 +21,8 @@ class OrderActivity : AppCompatActivity() {
         binding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val btnFinish = findViewById<Button>(R.id.btnFinish)
+        btnFinish.setOnClickListener { navigatetoTicket() }
         val lines = intent.getStringArrayListExtra("orderLines") ?: arrayListOf()
         val total = intent.getDoubleExtra("orderTotal", 0.0)
 
@@ -51,6 +58,10 @@ class OrderActivity : AppCompatActivity() {
         }
     }
 
+    private fun navigatetoTicket(){
+        val intent = Intent(this, TicketFinal::class.java)
+        startActivity(intent)
+    }
 
     class SimpleTextAdapter(private val items: List<String>) :
         androidx.recyclerview.widget.RecyclerView.Adapter<SimpleTextAdapter.VH>() {

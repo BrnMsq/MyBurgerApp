@@ -25,10 +25,10 @@
 
             <ImageButton
                 android:id="@+id/menu_user"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@color/white"
-                android:contentDescription="Abrir menú de usuario"
+                android:contentDescription="@string/abrir_men_de_usuario"
                 android:src="@drawable/ic_btn_menu_three_lines"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/app_title"
@@ -36,30 +36,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+
             <TextView
                 android:id="@+id/app_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:maxLines="1"
                 android:text="@string/app_name"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cart_buy"
                 app:layout_constraintStart_toEndOf="@+id/menu_user"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+            </TextView>
 
             <ImageButton
                 android:id="@+id/cart_buy"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="@color/white"
-                android:contentDescription="Ver carrito de compras"
+                android:contentDescription="@string/ver_carrito"
                 android:src="@drawable/ic_buy_cart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/app_title"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+            </ImageButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Delivery" />
+                            android:text="@string/delivery" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -151,7 +157,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="En Puerta" />
+                            android:text="@string/en_puerta" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -180,6 +186,7 @@
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
                                 android:background="@color/white"
+                                android:contentDescription="@string/todo"
                                 android:src="@drawable/ic_menu" />
 
                         </androidx.cardview.widget.CardView>
@@ -188,7 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Menú" />
+                            android:text="@string/men" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

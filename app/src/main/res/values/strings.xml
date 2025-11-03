@@ -67,4 +67,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="ver_carrito">VER CARRITO</string>
+    <string name="abrir_men_de_usuario">Abrir menú de usuario</string>
+    <string name="delivery">Delivery</string>
+    <string name="en_puerta">En Puerta</string>
+    <string name="men">Menú</string>
+    <string name="todo">TODO</string>
 </resources>
