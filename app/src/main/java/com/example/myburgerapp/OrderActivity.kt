@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.burgerapp.databinding.ActivityOrderBinding
+import com.example.myburgerapp.R
+import com.example.myburgerapp.databinding.ActivityOrderBinding
 
 class OrderActivity : AppCompatActivity() {
 
