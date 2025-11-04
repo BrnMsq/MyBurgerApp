@@ -36,8 +36,8 @@ class FoodMenu : AppCompatActivity() {
         binding = ActivityFoodMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val btnVolver = findViewById<Button>(R.id.btnVolverFLecha)
-        btnVolver.setOnClickListener { navigatetoMain() }
+        val btnVolver = binding.backButton
+        btnVolver.setOnClickListener { finish() }
 
 
         binding.backButton.setOnClickListener {
@@ -127,9 +127,4 @@ class FoodMenu : AppCompatActivity() {
             .setNegativeButton(getString(R.string.cancel)) { d, _ -> d.dismiss() }
             .show()
     }
-    private fun navigatetoMain() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
 }

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ACTIVITY_MAIN.XML-->
+    <!--@+id/head\ImageButton-->
+    <style
+        name="Head_IButton"
+        parent="MaterialAlertDialog.Material3">
+
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+    
+    
+    <!--@+id/fast_options\LinearLayout-->
+    <style
+        name="FOptions_LLayout"
+        parent="MaterialAlertDialog.Material3">
+
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">85dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+
+    <!--@+id/fast_options\LinearLayout\CardView-->
+    <style
+        name="FOptions_LLayout_CView"
+        parent="MaterialAlertDialog.Material3">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">95dp</item>
+        <item name="cardCornerRadius">15dp</item>
+        <item name="cardElevation">10dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <!--@+id/fast_options\LinearLayout\CardView\ImageView-->
+    <style
+        name="FOptions_LLayout_CView_TView"
+        parent="Widget.Material3.MaterialTimePicker.ImageButton">
+        
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <!--@+id/promociones\LinearLayout\CardView-->
+    <style
+        name="Promo_LLayout_CView"
+        parent="Widget.Material3.MaterialTimePicker.ImageButton">
+
+        <item name="android:layout_width">280dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
+    <!--@+id/promociones\LinearLayout\CardView\ImageView-->
+    <style
+        name="Promo_LLayout_CView_Iview"
+        parent="Widget.Material3.MaterialTimePicker.ImageButton">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!--@+id/promociones\LinearLayout\CardView\TextView-->
+    <style
+        name="Promo_LLayout_CView_Tview"
+        parent="Widget.Material3.MaterialTimePicker.ImageButton">
+
+        <item name="android:background">#99000000</item>
+        <item name="android:layout_gravity">bottom|start</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <!--USER_MENU.XML-->
+    <!--@+id/btn_editar_perfil\Button-->
+    <style
+        name="usermenu_Button"
+        parent="Widget.MaterialComponents.Button.TextButton.Icon">
+
+        <item name="background">@color/white</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--ACTIVITY_ORDER.XML-->
+    <!--LinearLayout\Button-->
+    <style
+        name="LLayout_Button"
+        parent="Widget.Material3.MaterialTimePicker.ImageButton">
+
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/black</item>
+
+    </style>
+</resources>
