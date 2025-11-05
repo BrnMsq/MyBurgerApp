@@ -16,7 +16,10 @@
     <string name="total_label">Total</string>
     <string name="confirm_clear">¿Vaciar pedido?</string>
     <string name="yes">Sí</string>
-    <string name="no">No</string>
+    <string name="no">No</string><string name="volver">Volver</string>
+    <string name="vaciar">Vaciar</string>
+    <string name="finalizar">Finalizar</string>
+
 
     <!-- Burger names -->
     <string name="classic">Clásica</string>

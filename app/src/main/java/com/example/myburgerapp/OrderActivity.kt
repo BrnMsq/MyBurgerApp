@@ -25,7 +25,7 @@ class OrderActivity : AppCompatActivity() {
         orderTotal = intent.getDoubleExtra("orderTotal", 0.0)
 
         // 2. Configurar listeners
-        binding.backButtonOrder.setOnClickListener {
+        binding.backButtonOrder?.setOnClickListener {
             finish()
         }
 
