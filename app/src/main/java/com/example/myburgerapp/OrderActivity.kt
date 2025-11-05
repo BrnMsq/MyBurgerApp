@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myburgerapp.R
 import com.example.myburgerapp.databinding.ActivityOrderBinding
+import com.example.myburgerapp.util.Price
 
 class OrderActivity : AppCompatActivity() {
 
