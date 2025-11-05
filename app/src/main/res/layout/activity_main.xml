@@ -8,7 +8,7 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <!-- Tu contenido principal se queda como está -->
+
     <LinearLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
@@ -17,90 +17,74 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!--HEADER-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <!--MENU DE USUARIO-->
             <ImageButton
                 android:id="@+id/menu_user"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/white"
-                android:contentDescription="Abrir menú de usuario"
+                style="@style/Head_IButton"
+                android:contentDescription="@string/abrir_men_de_usuario"
                 android:src="@drawable/ic_btn_menu_three_lines"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/app_title"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_chainStyle="spread_inside" />
 
+            <!--NOMBRE DE LA APP-->
             <TextView
                 android:id="@+id/app_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:maxLines="1"
                 android:text="@string/app_name"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cart_buy"
-                app:layout_constraintStart_toEndOf="@+id/menu_user"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/menu_user" />
 
+            <!--COMPRAS-->
             <ImageButton
                 android:id="@+id/cart_buy"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/white"
-                android:contentDescription="Ver carrito de compras"
+                style="@style/Head_IButton"
+                android:contentDescription="@string/ver_carrito"
                 android:src="@drawable/ic_buy_cart"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/app_title"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/app_title"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- El resto de tu contenido... -->
+        <!--BODY-->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- ... Aquí dentro va todo el resto de tu contenido (fast_options, novedades, etc.) ... -->
-                <!-- He movido el resto de tu contenido a un ScrollView para asegurar que se vea bien en todas las pantallas -->
-
+                <!--BODY\OPCIONES RÁPIDAS-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fast_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp">
 
+                    <!--BODY\OPCIONES RÁPIDAS\OPCIÓN RÁPIDA 1-->
                     <LinearLayout
                         android:id="@+id/btn_delivery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        style="@style/FOptions_LLayout"
                         app:layout_constraintEnd_toStartOf="@+id/btn_door"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintStart_toStartOf="parent">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="85dp"
-                            app:cardCornerRadius="35dp"
-                            app:cardElevation="10dp"
-                            app:cardPreventCornerOverlap="false"
-                            app:cardUseCompatPadding="true">
+                            style="@style/FOptions_LLayout_CView">
 
                             <ImageView
                                 android:layout_width="40dp"
@@ -111,32 +95,19 @@
                         </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Delivery" />
+                            style="@style/FOptions_LLayout_CView_TView"
+                            android:text="@string/delivery" />
                     </LinearLayout>
 
+                    <!--BODY\OPCIONES RÁPIDAS\OPCIÓN RÁPIDA 2-->
                     <LinearLayout
                         android:id="@+id/btn_door"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        style="@style/FOptions_LLayout"
                         app:layout_constraintEnd_toStartOf="@+id/btn_menu"
-                        app:layout_constraintStart_toEndOf="@+id/btn_delivery"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintStart_toEndOf="@+id/btn_delivery">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="85dp"
-                            app:cardCornerRadius="35dp"
-                            app:cardElevation="10dp"
-                            app:cardPreventCornerOverlap="false"
-                            app:cardUseCompatPadding="true">
+                            style="@style/FOptions_LLayout_CView">
 
                             <ImageView
                                 android:layout_width="40dp"
@@ -148,86 +119,179 @@
                         </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="En Puerta" />
+                            style="@style/FOptions_LLayout_CView_TView"
+                            android:text="@string/en_puerta" />
                     </LinearLayout>
 
+                    <!--BODY\OPCIONES RÁPIDAS\OPCIÓN RÁPIDA 3-->
                     <LinearLayout
                         android:id="@+id/btn_menu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        style="@style/FOptions_LLayout"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/btn_door"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintStart_toEndOf="@+id/btn_door">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="75dp"
-                            android:layout_height="85dp"
-                            app:cardCornerRadius="35dp"
-                            app:cardElevation="10dp"
-                            app:cardPreventCornerOverlap="false"
-                            app:cardUseCompatPadding="true">
+                            style="@style/FOptions_LLayout_CView">
 
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
                                 android:background="@color/white"
+                                android:contentDescription="@string/todo"
                                 android:src="@drawable/ic_menu" />
 
                         </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Menú" />
+                            style="@style/FOptions_LLayout_CView_TView"
+                            android:text="@string/men" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- ... Tu sección de novedades y locales va aquí dentro ... -->
+                <!--BODY\PROMOCIONES-->
+                <TextView
+                    android:id="@+id/tv_seccion_novedades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¡OFERTAS ÚNICAS!"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"/>
+
+                <HorizontalScrollView
+                    android:id="@+id/promociones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:paddingVertical="12dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp">
+
+                        <!--BODY\PROMOCIONES\PROMO 1-->
+                        <androidx.cardview.widget.CardView
+                            style="@style/Promo_LLayout_CView">
+
+                            <ImageView
+                                style="@style/Promo_LLayout_CView_Iview"
+                                android:src="@drawable/img_promo1" />
+
+                            <TextView
+                                style="@style/Promo_LLayout_CView_Tview"
+                                android:text="¡Súper Combo!" />
+                        </androidx.cardview.widget.CardView>
+
+                        <!--BODY\PROMOCIONES\PROMO 2-->
+                        <androidx.cardview.widget.CardView
+                            style="@style/Promo_LLayout_CView">
+
+                            <ImageView
+                                style="@style/Promo_LLayout_CView_Iview"
+                                android:src="@drawable/img_promo2" />
+
+                            <TextView
+                                style="@style/Promo_LLayout_CView_Tview"
+                                android:text="Doble Cheese" />
+                        </androidx.cardview.widget.CardView>
+
+                        <!--BODY\PROMOCIONES\PROMO 2-->
+                        <androidx.cardview.widget.CardView
+                            style="@style/Promo_LLayout_CView">
+
+                            <ImageView
+                                style="@style/Promo_LLayout_CView_Iview"
+                                android:src="@drawable/img_promo3" />
+
+                            <TextView
+                                style="@style/Promo_LLayout_CView_Tview"
+                                android:text="¡Veggie Power!" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!--BODY\LOCACIONES-->
+                <TextView
+                    android:id="@+id/tv_titulo_locales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¡Encuentra el local más próximo a ti!"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"/>
+
+                <androidx.cardview.widget.CardView
+                android:id="@+id/cv_mapa"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/img_maps"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:background="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:textAlignment="center"
+                        android:text="Buscar locales más cercanos"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
         </ScrollView>
     </LinearLayout>
 
-    <!-- ======== CONTENEDOR DEL MENÚ LATERAL ======== -->
-    <!-- Este es el contenedor que se deslizará. -->
-    <!-- Inicialmente está fuera de la pantalla (translationX negativo) y es invisible. -->
-    <!-- ... -->
-    <!-- ======== CONTENEDOR DEL MENÚ LATERAL ======== -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/user_menu_container"
-
-        android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:translationX="-280dp"
+    <!--MODAL\MENU DE USUARIO-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_modal_menu_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:translationZ="10dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="0dp"
         android:visibility="gone"
         tools:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="10dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <include layout="@layout/user_menu" />
 
-    <!-- ======== CAPA OSCURA (SCRIM) ======== -->
+    </androidx.cardview.widget.CardView>
+
     <View
-        android:id="@+id/scrim_view"
+        android:id="@+id/view_modal_overlay"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#99000000"
+        android:background="#80000000"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="9dp" /> <!-- AÑADIDO: También a la capa oscura, justo debajo del menú -->
-    <!-- ... -->
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

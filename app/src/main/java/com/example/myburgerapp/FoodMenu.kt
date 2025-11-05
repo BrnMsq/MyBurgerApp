@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RadioGroup
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myburgerapp.databinding.ActivityFoodMenuBinding
 import com.example.myburgerapp.models.Burger
 import com.example.myburgerapp.util.Price
+import android.content.Intent
 
 class FoodMenu : AppCompatActivity() {
 
@@ -33,6 +35,10 @@ class FoodMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFoodMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val btnVolver = binding.backButton
+        btnVolver.setOnClickListener { finish() }
+
 
         binding.backButton.setOnClickListener {
             finish()
@@ -108,6 +114,7 @@ class FoodMenu : AppCompatActivity() {
             orderLines.add(line)
             orderTotal += price
         }
+
 
         // Crea y muestra un único diálogo
         AlertDialog.Builder(this)

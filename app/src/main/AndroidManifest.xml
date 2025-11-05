@@ -11,12 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyBurgerApp" >
-        <activity
-            android:name=".order"
-            android:exported="false" />
-        <activity
-            android:name=".orders"
-            android:exported="false" />
+
         <activity
             android:name=".TicketFinal"
             android:exported="false"
