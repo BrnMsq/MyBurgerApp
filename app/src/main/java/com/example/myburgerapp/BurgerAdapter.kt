@@ -1,52 +1,45 @@
 package com.example.myburgerapp
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myburgerapp.models.Burger
+import com.example.myburgerapp.databinding.ItemBurgerBinding
+import com.example.myburgerapp.modelsimport.Burger
 import com.example.myburgerapp.util.Price
-import com.google.android.material.button.MaterialButton
-import com.example.myburgerapp.R
 
 class BurgerAdapter(
-
-    private var items: MutableList<Burger>,
+    private val burgers: MutableList<Burger>,
     private val onAddClicked: (Burger) -> Unit
-) : RecyclerView.Adapter<BurgerAdapter.BurgerVH>() {
+) : RecyclerView.Adapter<BurgerAdapter.BurgerViewHolder>() {
 
-    fun updateData(newBurgers: List<Burger>) {
+    // El ViewHolder ahora usa los IDs de tu layout
+    inner class BurgerViewHolder(private val binding: ItemBurgerBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(burger: Burger) {
+            // Asignar los datos a las vistas usando los IDs correctos
+            binding.tvName.text = burger.name
+            binding.tvDesc.text = burger.description // <-- ID de tu XML
+            binding.tvPrice.text = Price.format(burger.basePrice)
 
-        items.clear()
-        items.addAll(newBurgers)
-        notifyDataSetChanged()
+            // Cargar la imagen en el ImageView con ID 'imgThumb'
+            binding.imgThumb.setImageResource(burger.image) // <-- ID de tu XML
+
+            // Configurar el clic en el botón con ID 'btnAdd'
+            binding.btnAdd.setOnClickListener {
+                onAddClicked(burger)
+            }
+        }
     }
 
-
-
-    inner class BurgerVH(view: View) : RecyclerView.ViewHolder(view) {
-        val img: ImageView = view.findViewById(R.id.imgThumb)
-        val name: TextView = view.findViewById(R.id.tvName)
-        val desc: TextView = view.findViewById(R.id.tvDesc)
-        val price: TextView = view.findViewById(R.id.tvPrice)
-        val btn: TextView = view.findViewById(R.id.btnAdd)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BurgerViewHolder {
+        val binding =
+            ItemBurgerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BurgerViewHolder(binding)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BurgerVH {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_burger, parent, false)
-        return BurgerVH(v)
+    override fun onBindViewHolder(holder: BurgerViewHolder, position: Int) {
+        holder.bind(burgers[position])
     }
 
-    override fun onBindViewHolder(holder: BurgerVH, position: Int) {
-        val item = items[position]
-        holder.name.text = item.name
-        holder.desc.text = item.description
-        holder.price.text = Price.format(item.basePrice)
-        holder.img.setImageResource(R.drawable.ic_burger)
-        holder.btn.setOnClickListener { onAddClicked(item) }
-    }
-
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = burgers.size
 }

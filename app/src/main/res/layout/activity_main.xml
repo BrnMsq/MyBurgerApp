@@ -55,7 +55,8 @@
                 android:contentDescription="@string/ver_carrito"
                 android:src="@drawable/ic_buy_cart"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/app_title"/>
+                app:layout_constraintStart_toEndOf="@+id/app_title"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -81,7 +82,8 @@
                         android:id="@+id/btn_delivery"
                         style="@style/FOptions_LLayout"
                         app:layout_constraintEnd_toStartOf="@+id/btn_door"
-                        app:layout_constraintStart_toStartOf="parent">
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints">
 
                         <androidx.cardview.widget.CardView
                             style="@style/FOptions_LLayout_CView">
@@ -104,7 +106,8 @@
                         android:id="@+id/btn_door"
                         style="@style/FOptions_LLayout"
                         app:layout_constraintEnd_toStartOf="@+id/btn_menu"
-                        app:layout_constraintStart_toEndOf="@+id/btn_delivery">
+                        app:layout_constraintStart_toEndOf="@+id/btn_delivery"
+                        tools:ignore="MissingConstraints">
 
                         <androidx.cardview.widget.CardView
                             style="@style/FOptions_LLayout_CView">

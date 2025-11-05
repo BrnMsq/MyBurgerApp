@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.burgerapp.OrderActivity
+import com.example.myburgerapp.OrderActivity
 import com.example.myburgerapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

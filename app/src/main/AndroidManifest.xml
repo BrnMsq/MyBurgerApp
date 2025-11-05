@@ -13,6 +13,11 @@
         android:theme="@style/Theme.MyBurgerApp" >
 
         <activity
+            android:name=".OrderActivity"
+            android:exported="false" />
+
+
+        <activity
             android:name=".TicketFinal"
             android:exported="false"
             android:theme="@style/Theme.MyBurgerApp" />
