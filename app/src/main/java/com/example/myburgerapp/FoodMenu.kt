@@ -1,12 +1,12 @@
-
 package com.example.myburgerapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler // <-- IMPORTANTE AÑADIR
-import android.os.Looper  // <-- IMPORTANTE AÑADIR
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.Toast
@@ -18,11 +18,16 @@ import com.example.myburgerapp.modelsimport.Burger
 import com.example.myburgerapp.util.Price
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.radiobutton.MaterialRadioButton
+import java.util.Locale
+import kotlin.text.lowercase
 
 class FoodMenu : AppCompatActivity() {
 
     private lateinit var binding: ActivityFoodMenuBinding
-    private lateinit var burgers: List<Burger>
+
+    private lateinit var fullBurgerList: List<Burger>
+
+    private lateinit var burgerAdapter: BurgerAdapter
 
     companion object {
         val orderLines = ArrayList<String>()
@@ -34,75 +39,79 @@ class FoodMenu : AppCompatActivity() {
         binding = ActivityFoodMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.backButtonMenu.setOnClickListener {
             finish()
         }
 
-        // --- LA SOLUCIÓN DEFINITIVA APLICADA AL INTENT ---
         binding.btnGoToCart.setOnClickListener {
-            // Usamos un Handler para asegurar que el Intent se lance después de que cualquier
-            // otro evento de UI se haya procesado.
             Handler(Looper.getMainLooper()).postDelayed({
                 val intent = Intent(this, OrderActivity::class.java).apply {
                     putStringArrayListExtra("orderLines", orderLines)
                     putExtra("orderTotal", orderTotal)
                 }
                 startActivity(intent)
-            }, 100) // 100 milisegundos de retraso es suficiente.
+            }, 100)
         }
-        // --- FIN DE LA SOLUCIÓN ---
+
 
         setupBurgerList()
         setupRecyclerView()
+        setupSearchListener()
     }
 
-    // El resto del código (setupBurgerList, setupRecyclerView, showCustomizeDialog)
-    // se mantiene exactamente igual que en la versión anterior, que ya era robusta.
-    // ... (pega aquí el resto de tu código sin cambios)
-
-    // Dentro de la clase FoodMenu.kt
-
     private fun setupBurgerList() {
-        burgers = listOf(
-            Burger(
-                id = 1,
-                name = getString(R.string.classic),
-                description = "Doble carne, lechuga, tomate y salsa de la casa",
-                basePrice = 4200.0,
-                image = R.drawable.burger_classic // <-- Asegúrate de que el nombre del drawable coincida
-            ),
-            Burger(
-                id = 2,
-                name = getString(R.string.cheese),
-                description = "Doble carne con queso cheddar y cebolla",
-                basePrice = 4500.0,
-                image = R.drawable.burger_cheese
-            ),
-            Burger(
-                id = 3,
-                name = getString(R.string.bacon),
-                description = "Carne con bacon crocante y barbacoa",
-                basePrice = 4800.0,
-                image = R.drawable.burger_bacon
-            ),
-            Burger(
-                id = 4,
-                name = getString(R.string.veggie),
-                description = "Medallón vegano, palta y tomate",
-                basePrice = 4300.0,
-                image = R.drawable.burger_veggie
-            )
+
+        fullBurgerList = listOf(
+            Burger(1, getString(R.string.classic), "Doble carne, lechuga, tomate y salsa de la casa", 4200.0, R.drawable.burger_classic),
+            Burger(2, getString(R.string.cheese), "Doble carne con queso cheddar y cebolla", 4500.0, R.drawable.burger_cheese),
+            Burger(3, getString(R.string.bacon), "Carne con bacon crocante y barbacoa", 4800.0, R.drawable.burger_bacon),
+            Burger(4, getString(R.string.veggie), "Medallón vegano, palta y tomate", 4300.0, R.drawable.burger_veggie)
         )
     }
 
-
     private fun setupRecyclerView() {
-        val burgerAdapter = BurgerAdapter(burgers.toMutableList()) { burger ->
+
+        burgerAdapter = BurgerAdapter(fullBurgerList.toMutableList()) { burger ->
             showCustomizeDialog(burger)
         }
         binding.rvBurgers.layoutManager = LinearLayoutManager(this)
         binding.rvBurgers.adapter = burgerAdapter
     }
+
+    // --- FUNCIÓN DE BÚSQUEDA ---
+    private fun setupSearchListener() {
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Cada vez que el texto cambia, filtramos la lista
+                val query = s.toString()
+                filterList(query)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+    }
+
+    // --- FUNCIÓN DE FILTRADO ---
+    private fun filterList(query: String?) {
+        if (query.isNullOrBlank()) {
+
+            burgerAdapter.updateList(fullBurgerList)
+        } else {
+
+            val filteredList = fullBurgerList.filter { burger ->
+
+                val nameMatch = burger.name.lowercase(Locale.getDefault()).contains(query.lowercase(Locale.getDefault()))
+                val descriptionMatch = burger.description.lowercase(Locale.getDefault()).contains(query.lowercase(Locale.getDefault()))
+                nameMatch || descriptionMatch
+            }
+
+            burgerAdapter.updateList(filteredList)
+        }
+    }
+
 
     private fun showCustomizeDialog(burger: Burger) {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_customize, null, false)
