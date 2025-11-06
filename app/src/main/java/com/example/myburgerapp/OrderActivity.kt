@@ -3,11 +3,13 @@ package com.example.myburgerapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myburgerapp.databinding.ActivityOrderBinding
 import com.example.myburgerapp.util.Price
+import kotlin.jvm.java
 
 class OrderActivity : AppCompatActivity() {
 
@@ -19,6 +21,12 @@ class OrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val btnvolver = findViewById<Button>(R.id.btn_flecha_volver)
+        btnvolver.setOnClickListener {
+            navigateToMain()
+        }
+
 
         // 1. Recibir los datos del Intent
         orderLines = intent.getStringArrayListExtra("orderLines") ?: ArrayList()
@@ -111,5 +119,9 @@ class OrderActivity : AppCompatActivity() {
             holder.tv.text = items[position]
         }
         override fun getItemCount(): Int = items.size
+    }
+    private fun navigateToMain(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
